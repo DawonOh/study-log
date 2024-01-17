@@ -1,7 +1,12 @@
-import { Fragment, useCallback, useRef } from "react";
+import React, { Fragment, useCallback, useRef, useState } from "react";
 import { useBookSearhQuery } from "./hooks/useBookSearchQuery";
+import useDebounce from "./hooks/useDebounce";
 
 function App() {
+  const [query, setQuery] = useState("");
+
+  const debouncedSearchText = useDebounce(query, 500);
+
   const {
     data,
     fetchNextPage,
@@ -9,7 +14,7 @@ function App() {
     isFetchingNextPage,
     status,
     error,
-  } = useBookSearhQuery();
+  } = useBookSearhQuery(debouncedSearchText);
 
   const observer = useRef<IntersectionObserver>();
 
@@ -26,9 +31,12 @@ function App() {
       });
       if (node) observer.current.observe(node);
     },
-    [status]
+    [status, hasNextPage]
   );
 
+  const getSearchQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value);
+  };
   const bookList = data?.pages;
 
   return (
@@ -36,6 +44,15 @@ function App() {
       <h1 className="text-2xl font-bold">
         Infinite scroll with Open Library Search API
       </h1>
+      <label className="w-48 mr-4 p-2.5">
+        Search :
+        <input
+          type="search"
+          value={query}
+          onChange={getSearchQuery}
+          className="rounded-xl mx-4 my-4 px-4 py-0.5 focus:outline-none ml-4"
+        />
+      </label>
       <main className="grid grid-cols-card justify-around items-start w-4/5 h-full p-8 mx-auto my-0 gap-8">
         {bookList?.map((books, i) => (
           <Fragment key={i}>

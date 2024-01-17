@@ -1,7 +1,7 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { getBookData } from "../util/http";
 
-export const useBookSearhQuery = () => {
+export const useBookSearhQuery = (query: string) => {
   const {
     data,
     fetchNextPage,
@@ -10,8 +10,8 @@ export const useBookSearhQuery = () => {
     status,
     error,
   } = useInfiniteQuery({
-    queryKey: ["books"],
-    queryFn: ({ pageParam = 1 }) => getBookData({ pageParam }),
+    queryKey: ["search", { query }],
+    queryFn: ({ pageParam = 1 }) => getBookData({ query, pageParam }),
     initialPageParam: 1,
     getNextPageParam: (lastPage, pages) => {
       const nextPage = pages.length + 1;
