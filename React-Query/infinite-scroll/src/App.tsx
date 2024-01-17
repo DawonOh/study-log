@@ -2,8 +2,14 @@ import { Fragment, useCallback, useRef } from "react";
 import { useBookSearhQuery } from "./hooks/useBookSearchQuery";
 
 function App() {
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, status } =
-    useBookSearhQuery();
+  const {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    status,
+    error,
+  } = useBookSearhQuery();
 
   const observer = useRef<IntersectionObserver>();
 
@@ -31,9 +37,6 @@ function App() {
         Infinite scroll with Open Library Search API
       </h1>
       <main className="grid grid-cols-card justify-around items-start w-4/5 h-full p-8 mx-auto my-0 gap-8">
-        <span className="text-[#2776B4]">
-          {isFetchingNextPage && "...loading"}
-        </span>
         {bookList?.map((books, i) => (
           <Fragment key={i}>
             {books.docs.map((book) => {
@@ -46,6 +49,12 @@ function App() {
           </Fragment>
         ))}
       </main>
+      <span className="text-[#2776B4]">
+        {(isFetchingNextPage || status === "pending") && "...loading"}
+      </span>
+      <span className="text-[#2776B4]">
+        {(error || status === "error") && "error"}
+      </span>
     </div>
   );
 }
