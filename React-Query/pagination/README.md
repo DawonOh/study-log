@@ -19,5 +19,6 @@ $ npm run start
 
 ### 참고
 
-<a href='https://tanstack.com/query/latest/docs/framework/react/reference/useQuery'>Tanstack Query - useQuery</a>
-<a href='https://mycodings.fly.dev/blog/2023-09-24-react-query-paginated-query-and-infinite-query'>React Query 강좌 7편. 페이지네이션 구현하기와 useInfiniteQuery로 무한스크롤 구현하기</a>
+<a href='https://tanstack.com/query/latest/docs/framework/react/reference/useQuery'>Tanstack Query - useQuery</a><br />
+<a href='https://mycodings.fly.dev/blog/2023-09-24-react-query-paginated-query-and-infinite-query'>React Query 강좌 7편. 페이지네이션 구현하기와 useInfiniteQuery로 무한스크롤 구현하기</a><br />
+<a href='https://velog.io/@eunoia/JS%EB%A1%9C-Pagination-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0'>eunoia.log - JS로 Pagination 구현하기</a>
