@@ -5,3 +5,4 @@
 
 ## React Query(Tanstack Query)
 - 무한스크롤
+- 페이지네이션
