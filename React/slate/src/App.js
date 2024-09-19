@@ -1,7 +1,12 @@
 import "./App.css";
+import Write from "./pages/write";
 
 function App() {
-  return <div>slate</div>;
+  return (
+    <div>
+      <Write />
+    </div>
+  );
 }
 
 export default App;
