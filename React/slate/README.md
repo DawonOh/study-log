@@ -2,8 +2,7 @@
 
 ### 사용 기술 및 API
 
-- 사용 기술 : React, JavaScript
-- 사용 라이브러리 및 API : <a href='https://docs.slatejs.org/'>Slate 공식문서</a>
+- 사용 기술 : React, JavaScript, styled-components, <a href='https://docs.slatejs.org/'>Slate</a>
 
 ### 목표
 
@@ -15,3 +14,7 @@
 $ npm install
 $ npm run start
 ```
+
+### 참고
+<a href="https://codesandbox.io/p/sandbox/react-playground-luctk?file=%2Fsrc%2Fcomponents%2FQuillEditor%2FCustomToolbar.jsx">codesandbox-react-playground-luctk</a><br />
+<a href="https://github.com/memomou/memo_frontend">memo_frontend 레포지토리</a>
