@@ -6,10 +6,10 @@ export function Element({ attributes, children, element }) {
     case "bulleted-list":
       return <ul {...attributes}>{children}</ul>;
 
-    case "heading":
+    case "headingOne":
       return <h1 {...attributes}>{children}</h1>;
 
-    case "heading-two":
+    case "headingTwo":
       return <h2 {...attributes}>{children}</h2>;
 
     case "link":

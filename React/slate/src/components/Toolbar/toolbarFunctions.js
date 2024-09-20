@@ -19,6 +19,7 @@ export const toggleMark = (editor, format) => {
 };
 
 export const isBlockActive = (editor, format) => {
+  // Editor.node(editor: Editor, at: Location, options?) => NodeEntry
   const [match] = Editor.nodes(editor, {
     match: (n) =>
       !Editor.isEditor(n) && SlateElement.isElement(n) && n.type === format,
@@ -33,11 +34,4 @@ export const toggleBlock = (editor, format) => {
   Transforms.setNodes(editor, {
     type: isActive ? "paragraph" : format,
   });
-
-  if (!isActive) {
-    Transforms.wrapNodes(editor, {
-      type: format,
-      children: [],
-    });
-  }
 };
