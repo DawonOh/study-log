@@ -5,10 +5,11 @@ import {
   toggleBlock,
   toggleMark,
 } from "./toolbarFunctions.js";
-import Button from "../common/Button";
-import Icon from "../common/Icon";
+import Button from "../common/Button.jsx";
+import Icon from "../common/Icon.jsx";
 import defaultToolbarGroups from "./toolbarGroups.js";
 import styled from "styled-components";
+import { InsertImageButton } from "./Image.jsx";
 
 const ToolbarDiv = styled.div`
   display: flex;
@@ -78,6 +79,7 @@ const Toolbar = () => {
                 return null;
             }
           })}
+          <InsertImageButton />
         </ToolbarSpan>
       ))}
     </ToolbarDiv>

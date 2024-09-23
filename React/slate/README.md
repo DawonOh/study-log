@@ -16,5 +16,7 @@ $ npm run start
 ```
 
 ### 참고
+
 <a href="https://codesandbox.io/p/sandbox/react-playground-luctk?file=%2Fsrc%2Fcomponents%2FQuillEditor%2FCustomToolbar.jsx">codesandbox-react-playground-luctk</a><br />
 <a href="https://github.com/memomou/memo_frontend">memo_frontend 레포지토리</a>
+<a href="https://github.com/ianstormtaylor/slate/blob/main/site/examples/images.tsx">Slate Images example</a>

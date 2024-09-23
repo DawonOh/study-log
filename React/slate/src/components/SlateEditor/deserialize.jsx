@@ -1,4 +1,6 @@
-export function Element({ attributes, children, element }) {
+import { Image } from "../Toolbar/Image";
+
+export const Element = ({ attributes, children, element }) => {
   switch (element.type) {
     case "block-quote":
       return <blockquote {...attributes}>{children}</blockquote>;
@@ -22,10 +24,13 @@ export function Element({ attributes, children, element }) {
     case "list-item":
       return <li {...attributes}>{children}</li>;
 
+    case "image":
+      return <Image {...attributes} element={element} />;
+
     default:
       return <p {...attributes}>{children}</p>;
   }
-}
+};
 
 export function Leaf({ attributes, children, leaf }) {
   if (leaf.bold) {

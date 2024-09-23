@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { withReact, Editable } from "slate-react";
 import { withHistory } from "slate-history";
 import { createEditor } from "slate";
 import SlateEditor from "../components/SlateEditor/slateEditor";
 import styled from "styled-components";
+import { withImages } from "../components/Toolbar/Image";
 
 const StyledEditable = styled(Editable)`
   background-color: white;
@@ -27,7 +28,10 @@ const editorInitialValue = [
 const Write = () => {
   const [title, setTitle] = useState("");
 
-  const [editor] = useState(() => withReact(withHistory(createEditor())));
+  const editor = useMemo(
+    () => withImages(withHistory(withReact(createEditor()))),
+    []
+  )
 
   const titleHandler = (e) => {
     setTitle(e.target.value);

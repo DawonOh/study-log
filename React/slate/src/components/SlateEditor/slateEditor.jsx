@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { Editable, Slate } from "slate-react";
-import Toolbar from "../Toolbar/toolbar";
+import Toolbar from "../Toolbar/Toolbar";
 import { Element, Leaf } from "./deserialize";
 
 const SlateEditor = ({ editor, value }) => {
